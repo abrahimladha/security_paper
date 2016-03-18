@@ -26,6 +26,7 @@ HYPOTHETICAL PROBLEMS CONCERNING THE THEORY OF RELATIVITY ON CRYPTOGRAPHIC CURRE
     - history
         - Einstein and lorentz
         - talk about how weird it is
+    - Posulates and formalism
     - lorentz equations
         - for time
         - for distance

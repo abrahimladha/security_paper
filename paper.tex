@@ -1,5 +1,7 @@
 \documentclass[conference]{IEEEtran}
 \usepackage{cite}
+ \usepackage{amsmath}
+  \usepackage{graphicx}
 \begin{document}
 
 \title{Hypothetical Problems concerning the Theory of Relativity on Cryptographic Currency Implementations}
@@ -27,15 +29,43 @@ this is my abstract section
 \textbf{mining} Verifying transactions take computation power which takes time, money and electricity. Mining is the incentive. Mining is the process in which new blocks are added to the money supply. Miners are the ones to validate transactions and record them on the ledger. A new block containing the transactions since the last block is mined 10 minutes on average adding those transactions to the blockchain and considered confirmed. After coins are confirmed, this allows the new owners of those bitcoins to engage in transactions. This is how the problem of double-spending coins is prevented. 
 
 \section{The Theory of Relativity}
-\textbf{history} Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+\textbf{history} 
 
-\textbf{Postulates} Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+\textbf{Postulates} Einstein's Theory of Relativity is based upon two postulates: 
+\begin{enumerate}
+\item The Laws of Physics are the same for all observers in all inertial reference frames. No one frame is preferred over the other.
+\item The speed of light in a vacuum has the same value $c$ in all directions and in all inertial reference frames.
+\end{enumerate} 
+\begin{figure}[ht!]
+\includegraphics[scale=1]{./IMG/energyVsSpeed.png} 
+\caption{Kinetic energy required to reach a certain velocity as a fraction of the speed of light. To reach the speed of light would require infinite energy.}
+\end{figure}
 
-\textbf{lorentz equations} Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+\textbf{Lorentz Transforms} The Lorentz transforms are a system of equations that can be derived from Einstein's Postulates. They are for transforming reference frames. They are:
+\begin{equation}
+x' = \gamma(x - vt)
+\end{equation}
+\begin{equation} 
+t' = \gamma(t - vx/c^2)
+\end{equation}
+\begin{equation}
+\gamma = \frac{1}{\sqrt{1 - (v/c)^2}}
+\end{equation}
+Notice that $t'$ is dependent on position, that is to say, that space and time are entangled. This was a fundamental principle of Einstein's theory, one that was long rejected by his contemporaries. Why hadn't these been derived before? Well let $c \rightarrow \infty$ and our equations become $x' = x - vt$ and $t' = t$. These are the classical Galilean transforms, which work just fine at small speeds compared to $c$. From these, one could have deduced (incorrectly) that time passes at the same rate for all frames of reference. 
 
-\textbf{time travel} Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Suppose two events occur at the same place in some reference frame, but at different times, then (2) reduces to:
+\begin{equation}
+\Delta t = \gamma \Delta t'
+\end{equation}
+What this means is the faster you go, the slower time gets for you relative to slower frames. For example, if you leave earth when you are born on a rocket going 0.99$c$ relative to earth, When the earth clock says it should be your 100th birthday, the rocket clock will say that you are only a little over 14 years old, and you will look and feel only 14. 
 
-\textbf{Example Problem} To demonstrate some of this material, we present a famous example problem. There are two planets known to be hostile towards one another, $A$ and $B$ which are $4.0 \times 10^8 $m apart. You are in a rocket traveling at $0.98c$ relative to $A$ and $B$. Your rocket follows a straight line, first past $A$, then $B$. You detect a high energy microwave signal from $A$ and then, 1.10s later, an explosion on planet $B$. Clearly $A$ has attacked $B$. Should you prepare for a confrontation? First we set up our reference frame. We let the rocket be stationary and the $A$-$B$ planetary system moving at $0.98c$ relative to the rocket. We could have chosen another equivalent reference frame but this will make calculations simpler. let $x_A$ and $x_B$ denote the position of the signal from $A$ and the explosion on $B$ respectively, and $t_A$ and $t_B$ the times. Therefore $\Delta x = x_B - x_A = +4.0 \times 10^8$m, and $\Delta t = t_B - t_A = +1.10$s. We now transform the reference frame to that of $A$-$B$ and calculate $\Delta t'$ and $\Delta x'$. with $v = 0.98c$, $\gamma = 1/\sqrt{1-(v/c)^2} = 1/\sqrt{1-(0.98c/c)^2} = 5.0252$. Therefore $\Delta x' = \gamma(\Delta x - v\Delta t) = 3.86 \times 10^8$m, and $\Delta t' = \gamma (\Delta t - v\Delta x/c^2) = -1.04$s. Well $\Delta t'$ is negative. What does this mean? Well $\Delta t' = t'_B - t'_A = -1.04$ seconds. This tells us that $t'_A > t'_B$ which implies that the signal happened 1.04 seconds \textit{after} the explosion. But we witnessed the signal first, then the explosion, so which is it? If there is a relationship between these events, then information must travel from one to the other. If we check the speed of this information, we see $v_{info} = 4.0 \times 10^8$ meters / $1.10$ seconds $ = 3.64 \times 10^8$ m/s. But this speed is impossible since it exceeds $c$. Therefore neither event is dependent on the other, and these are unrelated events. 
+If a rod is at rest in some reference frame, then any observer in that frame and easily measure its length by subtracting the positions of its two endpoints, that is to say, $L = \Delta x$. Suppose the rod is moving. The length of the rod can only be measured if the endpoints are measured \textit{simultaenously}, which is to say $\Delta t = 0$, then (1) reduces to: 
+\begin{equation}
+\Delta x = \frac{\Delta x'}{\gamma}
+\end{equation}
+What this means is that the faster something is moving relative to you, it will appear longer to you. For example lets say you are in the same rocket going 0.99$c$. If you on your rocket measure it end to end to be 100 meters, then on earth they will measure it to be a little more than 708 meters.
+
+\textbf{Example Problem} To demonstrate some of this material, we present a famous example problem. There are two planets known to be hostile towards one another, $A$ and $B$ which are $4.0 \times 10^8 $m apart. You are in a rocket traveling at $0.98c$ relative to $A$ and $B$. Your rocket follows a straight line, first past $A$, then $B$. You detect a high energy microwave signal from $A$ and then, 1.10s later, an explosion on planet $B$. Clearly $A$ has attacked $B$. Should you prepare for a confrontation? First we set up our reference frame. We let the rocket be stationary and the $A$-$B$ planetary system moving at $0.98c$ relative to the rocket. We could have chosen another equivalent reference frame but this will make calculations simpler. let $x_A$ and $x_B$ denote the position of the signal from $A$ and the explosion on $B$ respectively, and $t_A$ and $t_B$ the times. Therefore $\Delta x = x_B - x_A = +4.0 \times 10^8$m, and $\Delta t = t_B - t_A = +1.10$s. We now transform the reference frame to that of $A$-$B$ and calculate $\Delta t'$ and $\Delta x'$. with $v = 0.98c$, $\gamma = 1/\sqrt{1-(v/c)^2} = 1/\sqrt{1-(0.98c/c)^2} = 5.0252$. Therefore $\Delta x' = \gamma(\Delta x - v\Delta t) = 3.86 \times 10^8$m, and $\Delta t' = \gamma (\Delta t - v\Delta x/c^2) = -1.04$s. Well $\Delta t'$ is negative. What does this mean? Well $\Delta t' = t'_B - t'_A = -1.04$ seconds. This tells us that $t'_A > t'_B$ which implies that the signal happened 1.04 seconds \textit{after} the explosion. But we witnessed the signal \textit{before} the explosion, so which is it? If there is a relationship between these events, then information must travel from one to the other. If we check the speed of this information, we see $v_{info} = 4.0 \times 10^8$ meters / $1.10$ seconds $ = 3.64 \times 10^8$ m/s. But this speed is impossible since it exceeds $c$. Therefore neither event is dependent on the other, and these are unrelated events. 
 \bibliographystyle{IEEEtran}
 \begin{thebibliography}{9}
 	
