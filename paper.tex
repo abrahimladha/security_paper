@@ -1,7 +1,8 @@
 \documentclass[conference]{IEEEtran}
 \usepackage{cite}
- \usepackage{amsmath}
-  \usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{lipsum}
 \begin{document}
 
 \title{Hypothetical Problems concerning the Theory of Relativity on Cryptographic Currency Implementations}
@@ -29,13 +30,17 @@ this is my abstract section
 \textbf{mining} Verifying transactions take computation power which takes time, money and electricity. Mining is the incentive. Mining is the process in which new blocks are added to the money supply. Miners are the ones to validate transactions and record them on the ledger. A new block containing the transactions since the last block is mined 10 minutes on average adding those transactions to the blockchain and considered confirmed. After coins are confirmed, this allows the new owners of those bitcoins to engage in transactions. This is how the problem of double-spending coins is prevented. 
 
 \section{The Theory of Relativity}
-\textbf{history} 
+\textbf{history} In physics up to this point in history, there had been a major inconsistency with the laws of physics between mechanics and electromagnetism. In 1905, Albert Einstein published a series of papers showing that just with two simple postulates, classical physics was simply an approximation that got more inaccurate at very large values. Relativity was the puzzle piece to fix these inconsistencies. Conseguences of Relativity are even proved to this day, with the recent discovery of gravitational waves. 
 
 \textbf{Postulates} Einstein's Theory of Relativity is based upon two postulates: 
 \begin{enumerate}
 \item The Laws of Physics are the same for all observers in all inertial reference frames. No one frame is preferred over the other.
 \item The speed of light in a vacuum has the same value $c$ in all directions and in all inertial reference frames.
 \end{enumerate} 
+
+Galileo's postulates stated that the laws of \textit{mechanics} were the same in all inertial frames. Einstein extended this to all laws of physics, to include optics, and electromagnetism. The first postulate does not say that all quantities are measured the same for all inert observers, but the laws, the relationship between quantities, is the same. 
+
+The second postulate is more defining. Previously we had thought that there was no speed limit to anything, and you simply required enough energy to reach that speed then it was attainable. We now realize that no information can travel faster than light. We denote the speed of light as the constant $c = 299792458$m/s. No particle with mass can even reach this speed.
 \begin{figure}[ht!]
 \includegraphics[scale=1]{./IMG/energyVsSpeed.png} 
 \caption{Kinetic energy required to reach a certain velocity as a fraction of the speed of light. To reach the speed of light would require infinite energy.}
@@ -66,6 +71,46 @@ If a rod is at rest in some reference frame, then any observer in that frame and
 What this means is that the faster something is moving relative to you, it will appear longer to you. For example lets say you are in the same rocket going 0.99$c$. If you on your rocket measure it end to end to be 100 meters, then on earth they will measure it to be a little more than 708 meters.
 
 \textbf{Example Problem} To demonstrate some of this material, we present a famous example problem. There are two planets known to be hostile towards one another, $A$ and $B$ which are $4.0 \times 10^8 $m apart. You are in a rocket traveling at $0.98c$ relative to $A$ and $B$. Your rocket follows a straight line, first past $A$, then $B$. You detect a high energy microwave signal from $A$ and then, 1.10s later, an explosion on planet $B$. Clearly $A$ has attacked $B$. Should you prepare for a confrontation? First we set up our reference frame. We let the rocket be stationary and the $A$-$B$ planetary system moving at $0.98c$ relative to the rocket. We could have chosen another equivalent reference frame but this will make calculations simpler. let $x_A$ and $x_B$ denote the position of the signal from $A$ and the explosion on $B$ respectively, and $t_A$ and $t_B$ the times. Therefore $\Delta x = x_B - x_A = +4.0 \times 10^8$m, and $\Delta t = t_B - t_A = +1.10$s. We now transform the reference frame to that of $A$-$B$ and calculate $\Delta t'$ and $\Delta x'$. with $v = 0.98c$, $\gamma = 1/\sqrt{1-(v/c)^2} = 1/\sqrt{1-(0.98c/c)^2} = 5.0252$. Therefore $\Delta x' = \gamma(\Delta x - v\Delta t) = 3.86 \times 10^8$m, and $\Delta t' = \gamma (\Delta t - v\Delta x/c^2) = -1.04$s. Well $\Delta t'$ is negative. What does this mean? Well $\Delta t' = t'_B - t'_A = -1.04$ seconds. This tells us that $t'_A > t'_B$ which implies that the signal happened 1.04 seconds \textit{after} the explosion. But we witnessed the signal \textit{before} the explosion, so which is it? If there is a relationship between these events, then information must travel from one to the other. If we check the speed of this information, we see $v_{info} = 4.0 \times 10^8$ meters / $1.10$ seconds $ = 3.64 \times 10^8$ m/s. But this speed is impossible since it exceeds $c$. Therefore neither event is dependent on the other, and these are unrelated events. 
+
+
+\section{GRAPH THEORETIC MODEL OF OUR NETWORK}
+\lipsum[1-2]
+\textbf{pool mining of two nodes}
+\lipsum[1-2]
+\textbf{pool mining of n nodes}
+\lipsum[1-2]
+
+\section{rotational scenarios}
+\textbf{concentric orbits}
+\lipsum[1-2]
+\textbf{overlapping orbits}
+\lipsum[1-2]
+\textbf{disjoint orbits}
+\lipsum[1-2]
+\textbf{planet - satellite relationship}
+\lipsum[1-2]
+
+\section{linear scenarios}
+\textbf{proof of only two cases}
+\lipsum[1-2]
+\textbf{moving towards}
+\lipsum[1-2]
+\textbf{moving away}
+\lipsum[1-2]
+\section{Propogation}
+\textbf{blockchain sync problems}
+\lipsum[1-2]
+\textbf{sidechains effect}
+\lipsum[1-2]
+
+\section{Extras}
+\textbf{mining security with thermodynamics}
+\lipsum[1-2]
+\textbf{quantum computings effect on mining}
+\lipsum[1-2]
+\textbf{information loss due to blackholes}
+\lipsum[1-2]
+
 \bibliographystyle{IEEEtran}
 \begin{thebibliography}{9}
 	
