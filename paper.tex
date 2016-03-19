@@ -3,6 +3,8 @@
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{lipsum}
+\usepackage{tikz}
+
 \begin{document}
 
 \title{Hypothetical Problems concerning the Theory of Relativity on Cryptographic Currency Implementations}
@@ -74,29 +76,162 @@ What this means is that the faster something is moving relative to you, it will 
 
 
 \section{GRAPH THEORETIC MODEL OF OUR NETWORK}
-\lipsum[1-2]
-\textbf{pool mining of two nodes}
-\lipsum[1-2]
+We first contruct the structure in which we will base our network models on. Our structure will be a simple graph with weighted edges. Each node will represent a user on our network. An edge will form between two nodes if and only if they are connected peers on the network. Not all peers connect to each other so our graph is not necessarily complete. The weight of an edge is a variable real number which represents the time in which it takes information traveling the speed of light to reach the other node. We will consider nodes travelling with non zero velocity but none of the cases of acceleration. This puts us squarely in the realm of special relativity. 
+ 
+\textbf{pool mining of two nodes} Consider the of only two simplified nodes. For this example we use the Earth-Mars planetary system. All the miners on Earth have formed a pool, as have the miners on Mars. transactions from Earth to Earth or Mars to Mars is no big deal. If a transaction from Earth to Mars is created, sending the information at the speed of light would take over seven minutes just to reach the other planet. 
+
+\begin{tikzpicture}[auto]
+
+\node[draw,shape = circle] (earth) {Earth};
+\node[draw, shape = circle](mars) at (6,2) {Mars};
+
+\node[draw, shape = circle](mars1) at (6,3) {};
+\node[draw, shape = circle](mars2) at (6.7,2.7) {};
+\node[draw, shape = circle](mars3) at (7,2) {};
+
+\node[draw,shape = circle] (earth1) at (0,-1) {};
+\node[draw,shape = circle] (earth2) at (-0.7,-.7) {};
+\node[draw,shape = circle] (earth3) at (-1,0) {};
+
+\path (earth1) edge node {} (earth);
+\path (earth2) edge node {} (earth);
+\path (earth3) edge node {} (earth);
+
+\path (mars1) edge node {} (mars);
+\path (mars2) edge node {} (mars);
+\path (mars3) edge node {} (mars);
+
+\path (mars) edge node {7.533 minutes} (earth);
+
+\end{tikzpicture}
+If we chose planets farther and farther apart for our example, the distance between them would become larger and larger and sending shares would take more time. If a transaction is sent, the entire network must also verify the transaction before a new one can proceed. We will discuss this more in the section on propogation. \cite{template}
+
+Because we only have two main nodes, we only have two cases. If one is greater than the other or if they are both equal. The second case is a statistical improbability so we will not consider it (All it takes is one user on either side to drop out of the pool for this case to reduce back to the first case). Consider the case where Earth is greater than Mars. Since there are only two nodes, Earth must have greater than 50\% of the network. Then nearly 100\% of the blocked solved would be on Earth, as if a miner on Mars wants to submit shares, The delay between Earth and Mars must be accounted for, and as that distance increases, the probability that shares from some planet arrive stale to Earth increases as the distance increases. The 51\% attack is also entirely possible, and Earth miners could censor transactions to and from Mars.
+
 \textbf{pool mining of n nodes}
-\lipsum[1-2]
+Now we consider generalizing the previous case to some $n$ nodes. 
+
+\begin{tikzpicture}[auto]
+
+\node[draw,shape = circle] (earth) {Earth};
+\node[draw,shape = circle](mars) at (6,2) {Mars};
+\node[draw, shape = circle](venus) at (2,6) {Venus};
+
+\node[draw, shape = circle](mars1) at (6,3) {};
+\node[draw, shape = circle](mars2) at (6.7,2.7) {};
+\node[draw, shape = circle](mars3) at (7,2) {};
+
+\node[draw,shape = circle] (earth1) at (0,-1) {};
+\node[draw,shape = circle] (earth2) at (-0.7,-.7) {};
+\node[draw,shape = circle] (earth3) at (-1,0) {};
+
+\node[draw,shape = circle] (venus1) at (3,6) {};
+\node[draw,shape = circle] (venus2) at (2.7,6.7) {};
+\node[draw,shape = circle] (venus3) at (2,7) {};
+
+
+\path (earth1) edge node {} (earth);
+\path (earth2) edge node {} (earth);
+\path (earth3) edge node {} (earth);
+
+\path (mars1) edge node {} (mars);
+\path (mars2) edge node {} (mars);
+\path (mars3) edge node {} (mars);
+
+\path (venus1) edge node {} (venus);
+\path (venus2) edge node {} (venus);
+\path (venus3) edge node {} (venus);
+
+\path (mars) edge (earth);
+\path (venus) edge (earth);
+\path (mars) edge (venus);
+\end{tikzpicture}
+With 3 or more nodes, We avoid the immediate outcome of the 51\% attack. ... ADD MORE HERE LATER
+
+
+
 
 \section{rotational scenarios}
+We now give several cases of which to determine the blocktime for this system.
+
 \textbf{concentric orbits}
-\lipsum[1-2]
-\textbf{overlapping orbits}
-\lipsum[1-2]
-\textbf{disjoint orbits}
-\lipsum[1-2]
+Consider the case of two planetary bodies in the same solar system. They orbit some large mass at the center, like a sun or a black hole. 
+\newline
+
+\begin{center}
+\begin{tikzpicture}[auto]
+
+\node[dashed,draw,shape = circle] (orbit1) at (0,0) {~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~};
+\node[fill=white,draw,shape = circle](mars) at (3,0) {$p_2$};
+
+
+\node[dashed, draw,shape = circle] (orbit2) {~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~};
+\node[fill = white,draw,shape = circle](earth) at (-2,0) {$p_1$};
+
+\node[fill = black, draw,shape = circle] (center) at (0,0) {};
+
+\path[->] (center) edge node {$r_1$} (earth);
+\path[->] (center) edge node {$r_2$} (mars);
+
+
+\end{tikzpicture}
+\end{center}
+
+
+We want to choose a blocktime in which these two planets can still submit shares to each other reasonably. Well The maximum distance these two planets can ever be apart is the sum of the two radii. The blocktime should then be chosen to be greater than this worst case scenario. If we henceforth denote $b$ as our blocktime, then the blocktime should be greater than the average of these to radii, that is: $b > \frac{r_1+r_2}{2}$. To generalize this for some $n$ planets, simply pick $p_1$ to be the planet of smallest radius and $p_2$ to be the planet of largest radius.
+
+\textbf{separate orbits}
+Consider the case of planets in two separate systems.
+\begin{center}
+\begin{tikzpicture}[auto]
+
+\node[dashed,draw,shape = circle] (orbit1) at (0,0) {~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~};
+\node[draw, shape = circle, fill= black](p1) at (0,0) {};
+
+\node[dashed,draw,shape = circle] (orbit2) at (3.6,0) {~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~};
+\node[draw, shape = circle, fill= black](p2) at (3.6,0) {};
+\node[fill=white,draw,shape = circle] (f1) at (-3,0){$p_1$};
+\node[fill=white,draw,shape = circle] (f2) at (5.7,0){$p_2$};
+
+
+
+\path[<->] (p1) edge node {$\alpha$} (p2);
+\path[->] (p1) edge node {$r_1$} (f1);
+\path[->] (p2) edge node {$r_2$} (f2);
+
+
+\end{tikzpicture}
+\end{center}
+
+This ends up being a very similiar case. We choose our blocktime here to be $b > \frac{r_1 + \alpha + r_2}{2}$.
+
+BLAH BLAH BLAH GENERALIZES THE SAME AS POOL MINING OF N NODES WHICH ISNT ADDED YET
 \textbf{planet - satellite relationship}
-\lipsum[1-2]
+
+\begin{center}
+\begin{tikzpicture}[auto]
+
+\node[dashed,draw,shape = circle] (orbit1) at (0,0) {~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~};
+\node[fill=white,draw,shape = circle](p2) at (3,0) {$p_2$};
+
+\node[fill = white, draw,shape = circle] (p1) at (0,0) {$p_1$};
+
+\path[->] (p1) edge node {$r_1$} (p2);
+
+
+\end{tikzpicture}
+\end{center}
+
+\section{reforking blockchain}
+ayylmao
 
 \section{linear scenarios}
 \textbf{proof of only two cases}
 \lipsum[1-2]
 \textbf{moving towards}
-\lipsum[1-2]
+\lipsum[1-3]
 \textbf{moving away}
-\lipsum[1-2]
+\lipsum[1-3]
 \section{Propogation}
 \textbf{blockchain sync problems}
 \lipsum[1-2]
@@ -109,7 +244,7 @@ What this means is that the faster something is moving relative to you, it will 
 \textbf{quantum computings effect on mining}
 \lipsum[1-2]
 \textbf{information loss due to blackholes}
-\lipsum[1-2]
+\lipsum[1-3]
 
 \bibliographystyle{IEEEtran}
 \begin{thebibliography}{9}
