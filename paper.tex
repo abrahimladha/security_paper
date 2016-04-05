@@ -17,7 +17,7 @@ abrahimladha@protonmail.ch}
 \maketitle
 
 \begin{abstract}
-this is my abstract section
+this is my abstract section his is my abstract sectionhis is my abstract sectionhis is my abstract sectionhis is my abstract sectionhis is my abstract sectionhis is my abstract sectionhis is my abstract sectionhis is my abstract sectionhis is my abstract sectionhis is my abstract sectionhis is my abstract sectionhis is my abstract sectionhis is my abstract sectionhis is my abstract sectionhis is my abstract sectionhis is my abstract sectionhis is my abstract sectionhis is my abstract sectionhis is my abstract sectionhis is my abstract sectionhis is my abstract sectionhis is my abstract sectionhis is my abstract sectionhis is my abstract section
 \end{abstract}
 
 \section{What is bitcoin?}
@@ -79,7 +79,6 @@ What this means is that the faster something is moving relative to you, it will 
 We first contruct the structure in which we will base our network models on. Our structure will be a simple graph with weighted edges. Each node will represent a user on our network. An edge will form between two nodes if and only if they are connected peers on the network. Not all peers connect to each other so our graph is not necessarily complete. The weight of an edge is a variable real number which represents the time in which it takes information traveling the speed of light to reach the other node. We will consider nodes travelling with non zero velocity but none of the cases of acceleration. This puts us squarely in the realm of special relativity. 
  
 \textbf{pool mining of two nodes} Consider the of only two simplified nodes. For this example we use the Earth-Mars planetary system. All the miners on Earth have formed a pool, as have the miners on Mars. transactions from Earth to Earth or Mars to Mars is no big deal. If a transaction from Earth to Mars is created, sending the information at the speed of light would take over seven minutes just to reach the other planet. 
-
 \begin{tikzpicture}[auto]
 
 \node[draw,shape = circle] (earth) {Earth};
@@ -104,18 +103,15 @@ We first contruct the structure in which we will base our network models on. Our
 \path (mars) edge node {7.533 minutes} (earth);
 
 \end{tikzpicture}
-If we chose planets farther and farther apart for our example, the distance between them would become larger and larger and sending shares would take more time. If a transaction is sent, the entire network must also verify the transaction before a new one can proceed. We will discuss this more in the section on propogation. \cite{template}
-
-Because we only have two main nodes, we only have two cases. If one is greater than the other or if they are both equal. The second case is a statistical improbability so we will not consider it (All it takes is one user on either side to drop out of the pool for this case to reduce back to the first case). Consider the case where Earth is greater than Mars. Since there are only two nodes, Earth must have greater than 50\% of the network. Then nearly 100\% of the blocked solved would be on Earth, as if a miner on Mars wants to submit shares, The delay between Earth and Mars must be accounted for, and as that distance increases, the probability that shares from some planet arrive stale to Earth increases as the distance increases. The 51\% attack is also entirely possible, and Earth miners could censor transactions to and from Mars.
-
-\textbf{pool mining of n nodes}
-Now we consider generalizing the previous case to some $n$ nodes. 
+If we chose planets farther and farther apart for our example, the distance between them would become larger and larger and sending shares would take more time. If a transaction is sent, the entire network must also verify the transaction before a new one can proceed. We will discuss this more in the section on propogation. \cite{template}\\
+Because we only have two main nodes, we only have two cases. If one is greater than the other or if they are both equal. The second case is a statistical improbability so we will not consider it (All it takes is one user on either side to drop out of the pool for this case to reduce back to the first case). Consider the case where Earth is greater than Mars. Since there are only two nodes, Earth must have greater than 50\% of the network. Then nearly 100\% of the blocked solved would be on Earth, as if a miner on Mars wants to submit shares, The delay between Earth and Mars must be accounted for, and as that distance increases, the probability that shares from some planet arrive stale to Earth increases as the distance increases. The 51\% attack is also entirely possible, and Earth miners could censor transactions to and from Mars.\\
+\textbf{pool mining of n nodes} Now we consider generalizing the previous case to some $n$ nodes. 
 
 \begin{tikzpicture}[auto]
 
 \node[draw,shape = circle] (earth) {Earth};
 \node[draw,shape = circle](mars) at (6,2) {Mars};
-\node[draw, shape = circle](venus) at (2,6) {Venus};
+\node[draw, shape = circle](venus) at (2,4) {Venus};
 
 \node[draw, shape = circle](mars1) at (6,3) {};
 \node[draw, shape = circle](mars2) at (6.7,2.7) {};
@@ -125,9 +121,9 @@ Now we consider generalizing the previous case to some $n$ nodes.
 \node[draw,shape = circle] (earth2) at (-0.7,-.7) {};
 \node[draw,shape = circle] (earth3) at (-1,0) {};
 
-\node[draw,shape = circle] (venus1) at (3,6) {};
-\node[draw,shape = circle] (venus2) at (2.7,6.7) {};
-\node[draw,shape = circle] (venus3) at (2,7) {};
+\node[draw,shape = circle] (venus1) at (3,4) {};
+\node[draw,shape = circle] (venus2) at (2.7,4.7) {};
+\node[draw,shape = circle] (venus3) at (2,5) {};
 
 
 \path (earth1) edge node {} (earth);
@@ -142,11 +138,13 @@ Now we consider generalizing the previous case to some $n$ nodes.
 \path (venus2) edge node {} (venus);
 \path (venus3) edge node {} (venus);
 
-\path (mars) edge (earth);
-\path (venus) edge (earth);
-\path (mars) edge (venus);
+\path (mars) edge node {$\alpha$} (earth);
+\path (venus) edge node {$\beta$} (earth);
+\path (mars) edge node {$\delta$} (venus);
+
 \end{tikzpicture}
-With 3 or more nodes, We avoid the immediate outcome of the 51\% attack. ... ADD MORE HERE LATER
+
+With 3 or more nodes, We avoid the immediate outcome of the 51\% attack. For a transaction to be sent from say, Earth to Mars, The transaction would be confirmed by only Earth and Mars if $\alpha > \beta$, but bitcoin doesn't quite work that way. UTXO would be scattered all over these $n$ planets, requiring their participation in a transaction. As a worst case scenario, If we let $\alpha < \beta < \delta$ and $\alpha + \beta < \delta$ then the  time to confirm a transaction would $2(\alpha + \beta)$.
 
 \textbf{Lattice} Consider the case of evenly space miners in a lattice in three dimensional euclidean space. 
 \begin{center}
@@ -181,10 +179,11 @@ With 3 or more nodes, We avoid the immediate outcome of the 51\% attack. ... ADD
 }
 \end{tikzpicture}
 \end{center}
-
+Our worst case scenario for a transaction is that there exists UTXO on every single node, and the two nodes participating in a transaction are on opposite corners. Let all the edges be the same length and the lattice of length $l$, width $w$, and height $h$. we can represent the weight of each edge as $\alpha$. Since we don't have any sort of diagonals, all possible paths that only go left, down, and back (as in, they don't go backwards or in loops) are of equal length. For our propogation, we have to consider every shortest path from the starting node. Since every node is on a shortest path, and every shortest path is the same length, then every node will be propogated to the end node at the same time. That time would be $\alpha \times lwh$.
 
 \section{rotational scenarios}
-We now give several cases of which to determine the blocktime for this system.
+We now give several cases of which to determine the blocktime for this system. \cite{template}
+
 \textbf{planet - satellite relationship}
 
 \begin{center}
@@ -201,13 +200,9 @@ We now give several cases of which to determine the blocktime for this system.
 \end{tikzpicture}
 \end{center}
 
-
-
-
 \textbf{concentric orbits}
 Consider the case of two planetary bodies in the same solar system. They orbit some large mass at the center, like a sun or a black hole. 
-\newline
-
+%\newline
 \begin{center}
 \begin{tikzpicture}[auto]
 
@@ -253,34 +248,17 @@ Consider the case of planets in two separate systems.
 \end{tikzpicture}
 \end{center}
 
-This ends up being a very similiar case. We choose our blocktime here to be $b > \frac{r_1 + \alpha + r_2}{2}$.
-
-BLAH BLAH BLAH GENERALIZES THE SAME AS POOL MINING OF N NODES WHICH ISNT ADDED YET
+This ends up being a very similiar case. We choose our blocktime here to be $b > \frac{r_1 + \alpha + r_2}{2}$. This generalizes the same as would the scenario of pool mining on $n$ nodes.
 
 
 \section{reforking blockchain}
 ayylmao
 
-\section{linear scenarios}
-\textbf{proof of only two cases}
-\lipsum[1-2]
-\textbf{moving towards}
-\lipsum[1-3]
-\textbf{moving away}
-\lipsum[1-3]
 \section{Propogation}
 \textbf{blockchain sync problems}
 \lipsum[1-2]
 \textbf{sidechains effect}
 \lipsum[1-2]
-
-\section{Extras}
-\textbf{mining security with thermodynamics}
-\lipsum[1-2]
-\textbf{quantum computings effect on mining}
-\lipsum[1-2]
-\textbf{information loss due to blackholes}
-\lipsum[1-3]
 
 \bibliographystyle{IEEEtran}
 \begin{thebibliography}{9}
@@ -291,13 +269,6 @@ ayylmao
 	\textit{Bitcoin: A Peer-to-Peer Electronic Cash System}
 	[Whitepaper]
 	Available: https://bitcoin.org/bitcoin.pdf
-
-\bibitem{1000usd}
-	M. Farrell. 
-	(2013).	
-	\textit{What Bubble? Bitcoin Tops \$1000}
-	[Online].
-	Available: https://blogs.wsj.com/moneybeat/2013/11/27/what-bubble-bitcoin-tops-1000/
 \bibitem{template}
 	J. K. Author. 
 	(year).	
@@ -305,5 +276,12 @@ ayylmao
 	(edition)
 	[Type of medium].
 	Available: https://www.example.com
+\bibitem{1000usd}
+	M. Farrell. 
+	(2013).	
+	\textit{What Bubble? Bitcoin Tops \$1000}
+	[Online].
+	Available: https://blogs.wsj.com/moneybeat/2013/11/27/what-bubble-bitcoin-tops-1000/
+
 \end{thebibliography}
 \end{document}
