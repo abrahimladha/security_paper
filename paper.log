@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.10.9)  2 APR 2016 19:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.10.9)  7 APR 2016 01:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -565,22 +565,21 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-ABD: EveryShipout initializing macros
-<./IMG/energyVsSpeed.png, id=4, 250.68657pt x 194.22563pt>
+ABD: EveryShipout initializing macros [1{/var/lib/texmf/fonts/map/pdftex/updmap
+/pdftex.map}
+
+
+] <./IMG/energyVsSpeed.png, id=17, 250.68657pt x 194.22563pt>
 File: ./IMG/energyVsSpeed.png Graphic file (type png)
 
 <use ./IMG/energyVsSpeed.png>
 Package pdftex.def Info: ./IMG/energyVsSpeed.png used on input line 47.
 (pdftex.def)             Requested size: 250.68594pt x 194.22514pt.
- [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
-
-
-]
-Underfull \hbox (badness 2503) in paragraph at lines 81--109
+ [2 <./IMG/energyVsSpeed.png>]
+Underfull \hbox (badness 2503) in paragraph at lines 85--113
 [] \OT1/ptm/m/n/10 If
  []
 
-[2 <./IMG/energyVsSpeed.png>]
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
@@ -591,15 +590,12 @@ Missing character: There is no ; in font nullfont!
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [3]
-Overfull \hbox (5.16917pt too wide) in paragraph at lines 248--249
+Overfull \hbox (5.16917pt too wide) in paragraph at lines 252--253
  [] 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [4]
-Underfull \hbox (badness 10000) in paragraph at lines 280--285
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 284--289
 \OT1/ptm/m/n/8 https://blogs.wsj.com/moneybeat/2013/11/27/what-bubble-bitcoin-t
 ops-
  []
@@ -621,7 +617,7 @@ Before submitting the final camera ready copy, remember to:
 Here is how much of TeX's memory you used:
  13150 strings out of 493105
  259722 string characters out of 6137072
- 447252 words of memory out of 5000000
+ 446171 words of memory out of 5000000
  16385 multiletter control sequences out of 15000+600000
  37346 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -639,7 +635,7 @@ a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/t
 ype1/urw/times/utmri8a.pfb>
-Output written on paper.pdf (5 pages, 154332 bytes).
+Output written on paper.pdf (5 pages, 157323 bytes).
 PDF statistics:
  77 PDF objects out of 1000 (max. 8388607)
  55 compressed objects within 1 object stream
